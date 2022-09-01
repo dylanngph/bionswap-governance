@@ -24,8 +24,8 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       sx={{
         backgroundColor: variant === "outlined" ? "transparent" : backgroundColor,
         border: variant === "outlined" ? "1px solid #07E0E0" : "none",
-        padding: "10px",
-        width: "100%",
+        padding: "12.5px 25px",
+        width: "fit-content",
         transition: "all .3s ease",
         cursor: "pointer",
         borderRadius: "4px",
@@ -40,7 +40,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       <Typography
         variant={labelVariant}
         color={variant === "outlined" ? "primary" : color}
-        sx={{ ...(labelVariant ? {} : { fontSize: "16px", fontWeight: "500", lineHeight: "27px" }), ...labelSx }}
+        sx={{ ...(labelVariant ? {} : { fontSize: "16px", fontWeight: "600", lineHeight: "27px" }), ...labelSx }}
       >
         {label}
       </Typography>
