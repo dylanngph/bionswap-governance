@@ -17,117 +17,138 @@ import { text } from 'stream/consumers';
 const config = [
     {
         label: 'Telegram',
-        icon: '/images/socials/telegram.png',
+        icon: '/images/home/telegram.svg',
+        number: '100K',
         link: '/',
-        color: '#2A73C8'
+        color: ''
     },
     {
         label: 'Twitter',
-        icon: '/images/socials/twitter.png',
+        icon: '/images/home/twitter.svg',
+        number: '100K',
         link: '/',
-        color: '#006EB2'
+        color: ''
     },
     {
         label: 'Discord',
-        icon: '/images/socials/discord.png',
+        icon: '/images/home/discord.svg',
+        number: '100K',
         link: '/',
-        color: '#6803B8'
+        color: ''
+    },
+    {
+        label: 'Community',
+        icon: '/images/home/community.svg',
+        number: '100K',
+        link: '/',
+        color: ''
+    },
+]
+
+const config2 = [
+    {
+        label: 'Incubating program',
+        icon: '/images/home/icon1.svg',
+        content: 'Smart contracts support and stragegies advice.',
+        color: '#2AC89F'
+    },
+    {
+        label: 'All automative',
+        icon: '/images/home/icon2.svg',
+        content: 'Launch your projects on Bionswap with a single click!',
+        link: '/',
+        color: '#07E0E0'
+    },
+    {
+        label: 'Payout',
+        icon: '/images/home/icon3.svg',
+        content: 'Helping early-born projects with a reasonable price.',
+        link: '/',
+        color: '#9A6AFF'
     },
 ]
 
 const CommunitySection = ({ isMobile, isTablet }: MobileProp) => {
     return (
-        <Wrapper>
-            <Container maxWidth='lg'>
-                <FlexBox flexDirection={isTablet ? 'column' : 'row'} justifyContent='space-between'>
-                    <FlexBox flexDirection='column' gap='24px' justifyContent='center' alignItems='center'>
-                        <FlexBox flexDirection='column' gap='22px' justifyContent='center'>
-                            <FlexBox gap='20px'>
-                                <Image src="/icons/home/community.svg" alt="partner" width={37} height={25} />
-                                <Typography variant='subtitle1' sx={{ color: 'gray.700' }}>
-                                    Community
-                                </Typography>
+        <Wrapper padding={isTablet ? '8rem 16px' : '8rem'}>
+            <FlexBox gap='42px' alignItems='center' justifyContent='space-between' width='100%' flexDirection={isMobile ? 'column' : 'row'}>
+                <Box maxWidth='591px'>
+                    <Typography variant='h2' sx={{color: 'extra.other.fifteenth'}}>
+                        Our Strong Community
+                    </Typography>
+                    <Typography variant='h6'>
+                        We have a global distributed network of loyal backers interested in supporting the project of the future, like yours.
+                    </Typography>
+                </Box>
+                <Box sx={{
+                    display: 'grid', gridTemplateColumns: 'auto auto', gap: '42px'
+                }}>
+                    {
+                        config.map(item =>
+                            <FlexBox key='' alignItems={isMobile ? 'start' :'center'} gap='15px' flexDirection={isTablet ? 'column' : 'row'}>
+                                <Box padding={isTablet ? '15px' : '21px'} borderRadius='12px' sx={{backgroundColor: '#535353',display:'flex',justifyContent:'center',alignItems:'center'}}> 
+                                    <Image src={item.icon} alt='' width='32px' height='32px' />
+                                </Box>
+                                <Box>
+                                    <Typography variant='h4'>
+                                        +{item.number}
+                                    </Typography>
+                                    <Typography sx={{color: 'extra.text.secondary'}}>
+                                        {item.label} members
+                                    </Typography>
+                                </Box>
+                                
                             </FlexBox>
-                            <WrapNetworkHead flexDirection='column'>
-                                <Typography variant='h3Samsung' color='#000000' fontWeight='700'>
-                                    Join the Bionswap community today
-                                </Typography>
-                                <Typography variant='body3Poppins' color='primary.dark' fontWeight='400'>
-                                    Support you whenever you need !
-                                </Typography>
-                            </WrapNetworkHead>
-                            <FlexBox width='100%' gap='17px' sx={{
-                                flexWrap: {xs: 'wrap', md: 'inherit'}
-                            }}>
-                                {
-                                    config.map((item: any) => (
-                                        <Link key={item.label} href={item.link}>
-                                            <ButtonSocial component='a' sx={{
-                                                borderColor: item.color,
-                                                backgroundColor: item.color,
-                                                color: '#ffffff',
-
-                                                '&:hover': {
-                                                    backgroundColor: '#ffffff',
-
-                                                    'span': {
-                                                        color: item.color,
-                                                    }
-                                                }
-                                            }}>
-                                                <img src={item.icon} alt={item.label} />
-                                                <Typography variant='body3Poppins' fontWeight='600'>
-                                                    {item.label}
-                                                </Typography>
-                                            </ButtonSocial>
-                                        </Link>
-                                    ))
-                                }
+                        )
+                    }
+                </Box>
+            </FlexBox>
+            <FlexBox alignItems='center' gap='42px' flexDirection='column'>
+                <Typography variant={isMobile ? 'h3Samsung' : 'h2'}>
+                    All-encompassing support
+                </Typography>
+                <Box sx={{
+                    display: 'grid', gridTemplateColumns: isTablet ? 'auto auto' : isMobile ? 'auto' :  'auto auto auto',
+                    alignItems: 'center', gap: '60px'
+                }}>
+                    {
+                        config2.map(item =>
+                            <FlexBox key='' alignItems={isMobile ? 'start' :'center'} gap='15px' flexDirection={isTablet ? 'column' : 'row'} maxWidth='323px'>
+                                <Image src={item.icon} alt='' width='60px' height='60px' />
+                                <FlexBox flexDirection='column'>
+                                    <Typography variant='h6' sx={{color: item.color}}>
+                                        {item.label}
+                                    </Typography>
+                                    <Typography variant='body4Poppins'>
+                                        {item.content}
+                                    </Typography>
+                                </FlexBox>
+                                
                             </FlexBox>
-                        </FlexBox>
-                    </FlexBox>
-                </FlexBox>
-            </Container>
+                        )
+                    }
+                </Box>
+            </FlexBox>
         </Wrapper>
     )
 }
 
-const FlexBox = styled(Box)`
-    display: flex;
-`
 const Wrapper = styled(Box)`
     width: 100%;
-    background-color: ${(props) => (props.theme.palette as any).extra.background.gray};
-    background-image: url('/images/global.png');
-    background-size: contain;
-    background-position: right bottom;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 60px;
-    justify-content: center;
-    position: relative;
+    background: url("/images/home/community.png");
     background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 105px 0 145px;
-    background-size: contain;
-    background-position: right;
-`
-const WrapNetworkHead = styled(Box)`
-    max-width: 582px;
-    width: 100%;
-    display: flex;
-`
-const ButtonSocial = styled(Box)`
-    max-width: 202px;
-    height: 50px;
-    display: flex;
+    background-size: 100% 100%;
     align-items: center;
-    gap: 15px;
-    border: 1px solid;
-    border-radius: 4px;
-    justify-content: center;
-    cursor: pointer;
-    width: 100%;
+    justify-content: space-between;
+  }
 `
+const FlexBox = styled(Box)`
+  display: flex
+`
+
 
 export default CommunitySection

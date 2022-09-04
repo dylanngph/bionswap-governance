@@ -231,7 +231,9 @@ export const darkPalette: ExtendedPaletteOptions = {
       primary: "#D6DADE",
       secondary: "#A8B0B9",
       subtitle: "#575757",
+      blur: '#787A9B',
       highlight: "#6803B8",
+      dark: "#000",
     },
     background : {
       gray: "#EDEDED",
@@ -385,7 +387,6 @@ const getComponentTheme = (basePalette: ExtendedPaletteOptions): ThemeOptions =>
         fontSize: '14px',
         lineHeight: '160%',
       },
-
       button: {
         fontStyle: "italic",
       },

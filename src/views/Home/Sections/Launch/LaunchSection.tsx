@@ -3,84 +3,88 @@ import React from 'react'
 import {
     Box,
     Button,
-    Container
+    Container,
+    Typography,
+    styled
 } from '@mui/material'
-import styled from '@emotion/styled'
+import Image from "next/image";
 import { MobileProp } from 'configs/Type/Mobile/type'
+import { useRouter } from "next/router";
+import PrimaryButton from 'components/PrimaryButton';
 
-const LaunchSection = ({ isMobile }: MobileProp) => {
-    const Wrapper = styled(Box)`
-        width: 100%;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-position: center;
-        padding-top: ${isMobile ? '50px' : '70px'};
-        padding-bottom: ${isMobile ? '80px' : '70px'};
-        display: flex;
-        flex-direction: column;
-        gap: ${isMobile ? '50px' : '86px'};
-`
-    const HeadTitle = styled(Box)`
-        color: #0C1116;
-        font-weight: 700;
-        font-size: ${isMobile ? '32px' : '42px'};
-        line-height: 120%;
-        text-align: ${isMobile ? 'center' : 'left'}
-    `
-    const Subcontent = styled(Box)`
-        color: #25273D;
-        font-weight: 400;
-        font-size: ${isMobile ? '14px' : '20px'};
-        line-height: 180%;
-        max-width: 887px;
-        text-align: ${isMobile ? 'center' : 'left'}
-    `
-    const ButtonStyle = styled(Button)`
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 27px;
-        color: #0b0b0b;
-        padding: 12px;
-        max-width: 230px;
-        width: 100%;
-        border: 1px solid #0b0b0b;
-        border-radius: 9999px;
-        text-align: center;
-        cursor: pointer;
-        transition: .15s ease-in;
-        font-family: inherit;
-        text-transform: inherit;
-        display: block;
-        &:hover {
-            background: #0b0b0b;
-            color: #ffffff;
-        }
-    `
+const LaunchSection = ({ isMobile , isTablet }: MobileProp) => {
+    const router = useRouter();
 
     return (
-        <Wrapper>
-            <Container>
-                <Box display="flex" gap={3} justifyContent="space-between">
-                    <Box sx={{
-                        maxWidth: '500px',
-                        width: '100%',
-                        display: 'flex',
-                        gap: '24px',
-                        flexDirection: 'column'
+        <Box sx={{
+            backgroundColor: '#fff', color: '#0b0b0b'
+        }}>
+            <Wrapper padding='8rem 16px'>
+                <FlexBox flexDirection='column' gap='21px' maxWidth='658px' textAlign='center' alignItems='center'>
+                    <Typography variant='h2' sx={{
+                        color: 'extra.text.dark'
                     }}>
-                        <HeadTitle className='specialFont' >Want to launch your project on BionSwap ?</HeadTitle>
-                        <Subcontent>
-                            Ideas that launch on BionSwap are not only highly-vetted by our team of expert analysts, but also by industry-leading expertise.
-                        </Subcontent>
-                        <ButtonStyle>Get started</ButtonStyle>
+                        Why launch <span style={{color: '#6803B8', fontSize:'inherit', fontWeight:'inherit'}}>with us!</span>
+                    </Typography>
+                </FlexBox>
+                <FlexBox flexDirection={isTablet ? 'column' : 'row'} alignItems='center' justifyContent='center' gap='42px'>
+                    <InfoCard>
+                        <Typography variant='h3' sx={{color: 'primary.main'}}>
+                            Raise fund publicly
+                        </Typography>
+                        <Box>
+                            Access a global reach of dedicated backers in a transparent and decentralized setting.
+                        </Box>
+                    </InfoCard>
+                    <Box display={isTablet ? 'none' : 'block'}>
+                        <img src="/images/home/rocket.png" alt="" width={isMobile ? '100%' : '350px'} />
                     </Box>
-                    <Box display={isMobile ? 'none' : 'block'}>
-                        <Box marginTop="-225px" component='img' src='/images/Launch.png' alt='Launch' />
-                    </Box>
-                </Box>
-            </Container>
-        </Wrapper>
+                    <FlexBox flexDirection='column' gap={isTablet ? '42px' :'160px'}>
+                        <InfoCard>
+                            <Typography variant='h3' sx={{color: 'primary.main'}}>
+                                Raise fund publicly
+                            </Typography>
+                            <Box>
+                                Access a global reach of dedicated backers in a transparent and decentralized setting.
+                            </Box>
+                        </InfoCard>
+                        <InfoCard>
+                        <Typography variant='h3' sx={{color: 'primary.main'}}>
+                            Raise fund publicly
+                        </Typography>
+                        <Box>
+                            Access a global reach of dedicated backers in a transparent and decentralized setting.
+                        </Box>
+                    </InfoCard>
+                    </FlexBox>
+                </FlexBox>
+                
+            </Wrapper>
+        </Box>
     )
 }
+
+const Wrapper = styled(Box)`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  background: url("/images/home/grid2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  align-items: center;
+  }
+`
+const FlexBox = styled(Box)`
+  display: flex;
+`
+const InfoCard = styled(Box)`
+  background: ${(props) => (props.theme.palette as any).extra.other.thirteenth};
+  color: #fff;
+  border-radius: 12px;
+  padding: 28px 36px;
+  max-width: 423px;
+`
 
 export default LaunchSection

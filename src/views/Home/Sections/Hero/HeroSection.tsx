@@ -34,7 +34,7 @@ const HeroSection = ({ isMobile, isTablet }: MobileProp) => {
         />
       </FlexBox>
       <Box>
-        <img src="/images/home/hero-pc.png" alt="" width={isMobile ? '100%' : '1200px'} />
+        <img src="/images/home/hero-pc.png" alt="" width={isTablet ? '100%' : '1200px'} />
       </Box>
     </Wrapper>
   );

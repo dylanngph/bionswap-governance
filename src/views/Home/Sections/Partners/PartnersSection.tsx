@@ -33,35 +33,15 @@ const config = [
 
 const PartnersSection = ({ isMobile, isTablet }: MobileProp) => {
     return (
-        <Wrapper>
-            <Container maxWidth='lg'>
-                <FlexBox flexDirection={isTablet ? 'column' : 'row'} justifyContent='space-between'>
-                    <FlexBox alignItems='end' width='50%' sx={{ display: { xs: 'none', md: 'block' } }}>
-                        <WrapImage>
-                            <img src="/images/home/Group481768.png" alt="Group481768" width='290px' height='auto' />
-                        </WrapImage>
-                    </FlexBox>
-                    <FlexBox flexDirection='column' gap='24px' justifyContent='center' alignItems='center' sx={{ width: {xs: '100%', md: '50%'} }}>
-                        <FlexBox flexDirection='column' gap='24px' justifyContent='center'>
-                            <FlexBox gap='20px'>
-                                <Image src="/icons/home/partner.svg" alt="partner" width={37} height={25} />
-                                <Typography variant='subtitle1' sx={{ color: 'extra.text.primary' }}>
-                                    For partners
-                                </Typography>
-                            </FlexBox>
-                            <WrapNetworkHead>
-                                <Typography variant='h3Samsung' fontWeight='700'>
-                                    Want to launch your
-                                    project on BionSwap ?
-                                </Typography>
-                            </WrapNetworkHead>
-                            <Box maxWidth='218px' width='100%'>
-                                <PrimaryButton label="Create now" />
-                            </Box>
-                        </FlexBox>
-                    </FlexBox>
-                </FlexBox>
-            </Container>
+        <Wrapper padding={isTablet ? '8rem 16px' : '8rem'}>
+            <FlexBox flexDirection='column' alignItems='end'>
+                <Box maxWidth='512px'>
+                    <Typography variant='h2' sx={{color:'primary.dark'}}>
+                        BionSwap Partner Network
+                    </Typography>
+                    <Box>Support you whenever you need!</Box>
+                </Box>
+            </FlexBox>
         </Wrapper>
     )
 }
@@ -69,25 +49,17 @@ const PartnersSection = ({ isMobile, isTablet }: MobileProp) => {
 const FlexBox = styled(Box)`
     display: flex;
 `
-const WrapImage = styled(Box)`
-    text-align: center;
-`
 const Wrapper = styled(Box)`
     width: 100%;
-    background-color: ${(props) => props.theme.palette.background.default};
-    background-image: url('/images/home/Vector.png');
+    background-color: ${(props) => props.theme.palette.background.paper};
+    background-image: url('/images/home/partner-bg.png');
+    color: #000;
     display: flex;
     flex-direction: column;
     gap: 60px;
-    justify-content: center;
-    position: relative;
+    min-height: 782px;
     background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 35px 0 70px;
-`
-const WrapNetworkHead = styled(Box)`
-    max-width: 352px;
-    width: 100%;
+    background-size: cover;
 `
 
 export default PartnersSection

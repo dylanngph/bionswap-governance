@@ -6,6 +6,10 @@ import {
     useMediaQuery
 } from '@mui/material'
 import HeroSection from './Sections/Hero/HeroSection';
+import LaunchSection from './Sections/Launch/LaunchSection';
+import CommunitySection from './Sections/Community/CommunitySection';
+import Roadmap from './Sections/Roadmap/Roadmap';
+import PartnersSection from './Sections/Partners/PartnersSection';
 
 const Homepage = () => {
   const isMobile = useMediaQuery('(max-width:700px)');
@@ -14,6 +18,10 @@ const Homepage = () => {
   return (
     <Page>
         <HeroSection isMobile={isMobile} isTablet={isTablet} />
+        <LaunchSection isMobile={isMobile} isTablet={isTablet}/>
+        <CommunitySection isMobile={isMobile} isTablet={isTablet}/>
+        <PartnersSection isMobile={isMobile} isTablet={isTablet}/>
+        <Roadmap isMobile={isMobile} isTablet={isTablet}/>
     </Page>
   )
 }
